@@ -9,9 +9,10 @@ the .zip files are the dataset used after processing.
 Steps: Training & Test
 
 Input: The pre-processed training dataset (zip file).
+
 Source code: MyRecEditTrain.py 
 
-example：
+code example：
 
 
     # parameters setting
