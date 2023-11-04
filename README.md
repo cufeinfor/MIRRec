@@ -12,12 +12,16 @@ Input: The pre-processed training dataset (zip file).
 Source code: MyRecEditTrain.py 
 
 example：
-    dates = [(2018, 6, 2019, 6), (2018, 6, 2019, 7)]#select time interval
-    projects = project.path #data path
-    projects = ['project name'] #project 
+
+
+    # parameters setting
+    dates =[(2018, 6, 2019, 6), (2018, 6, 2019, 7), (2018, 6, 2019, 8), (2018, 6, 2019, 9), (2018, 6, 2019, 10),
+                 (2018, 6, 2019, 11), (2018, 6, 2019, 12), (2018, 6, 2020, 1), (2018, 6, 2020, 2), (2018, 6, 2020, 3)]# time interval selection
+    projects = ['electron', 'opencv', 'xbmc', 'react', 'angular', 'django',
+                 'symfony', 'rails', 'scala']
     alpha = 0.9
     K = 10
-    re_arr = [1,2,3,4,5]#Top-k
+    re_arr = [1, 2, 3, 4, 5]#Top-k
     c = 0.8
 
 
@@ -34,11 +38,12 @@ example：
                                        TrainPRDisIsComputed=False,
                                        HyperGraphIsCreated=False
                                        , re=4, ct=3, ic=1, rc=1)
-                             
-   #test for metrics
-   HyperGraphIsCreated = False  # construct the initial hypergraph， or continue training without initialization（True)
-   TrainPRDisIsComputed = True  # pr-pr weight updated (for optimal k)
-   MyRecEditTrain.TestAlgorithm(project, dates, alpha=alpha, K=K, c=c, 
-                                TrainPRDisIsComputed=TrainPRDisIsComputed, 
-                                HyperGraphIsCreated=HyperGraphIsCreated, 
-                                re=4, ct=3, ic=1, rc=1)
+
+    #test for metrics
+    for re in re_arr:
+        for p in projects:
+            HyperGraphIsCreated = True  # continue training without initialization, or construct the initial hypergraph(False)
+            TrainPRDisIsComputed = True  # pr-pr weight updated (for optimal k)
+            MyRecEditTrain.TestAlgorithm(p, dates, alpha=alpha, K=K, c=c, TrainPRDisIsComputed=TrainPRDisIsComputed,
+                                         HyperGraphIsCreated=HyperGraphIsCreated, re=4, ct=3, ic=1, rc=1)
+
