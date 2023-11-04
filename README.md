@@ -1,7 +1,7 @@
 # MIRRec
 
 # Files
-The main function is in MyRecEditTrain.py.  Use the 'RecommendByMyRecEdit' for hypergraph-base model training and use the 'EvaluationAlgorithm' to get the evaluation results.
+The main function is in MyRecEditTrain.py.  Use the 'recommendByMyRecEdit' for hypergraph-base model training and use the 'evaluationAlgorithm' to get the evaluation results.
 
 The other .py files are invocated methods for HyperGraph construction.
 
@@ -30,7 +30,7 @@ Source code: MyRecEditTrain.py
 # training
     for re in re_arr:
         for p in projects:
-              MyRecEditTrain.RecommendByMyRecEdit(train_data, train_data_commit, train_data_issue_comment,
+              MyRecEditTrain.recommendByMyRecEdit(train_data, train_data_commit, train_data_issue_comment,
                                        train_data_review_comment, train_data_y, train_data_y_workload,
                                        train_data_committer, train_data_issue_commenter, train_data_review_commenter,
                                        test_data, test_data_commit, test_data_y,
@@ -40,11 +40,11 @@ Source code: MyRecEditTrain.py
                                        TrainPRDisIsComputed=False,
                                        HyperGraphIsCreated=False
                                        , re=4, ct=3, ic=1, rc=1)
-# Evalution for metrics
+# Evaluation for metrics
     for re in re_arr:
         for p in projects:
             HyperGraphIsCreated = True  # continue training without initialization, or construct the initial hypergraph(False)
             TrainPRDisIsComputed = True  # pr-pr weight updated (for optimal k)
-            MyRecEditTrain.EvaluationAlgorithm(p, dates, alpha=alpha, K=K, c=c, TrainPRDisIsComputed=TrainPRDisIsComputed,
+            MyRecEditTrain.evaluationAlgorithm(p, dates, alpha=alpha, K=K, c=c, TrainPRDisIsComputed=TrainPRDisIsComputed,
                                          HyperGraphIsCreated=HyperGraphIsCreated, re=4, ct=3, ic=1, rc=1)
 
