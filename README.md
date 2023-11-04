@@ -1,11 +1,11 @@
 # MIRRec
 
 # Files
-The main function is in MyRecEditTrain.py. use the 'RecommendByMyRecEdit' for hypergraph-base model training and use the 'TestAlgorithm' for testing.
+The main function is in MyRecEditTrain.py.  Use the 'RecommendByMyRecEdit' for hypergraph-base model training and use the 'EvaluationAlgorithm' to get the evaluation results.
 
 The other .py files are invocated methods for HyperGraph construction.
 
-the .zip files are the dataset used after processing.
+the .zip files are the preprocessed data of different projects in the dataset, named after the corresponding project.
 
 # Steps
 
@@ -13,11 +13,13 @@ Input: The pre-processed training dataset (zip file).
 
 Source code: MyRecEditTrain.py 
 
-# code example：
+# Runing example：
 
 # parameters setting
+    # time interval selection
     dates =[(2018, 6, 2019, 6), (2018, 6, 2019, 7), (2018, 6, 2019, 8), (2018, 6, 2019, 9), (2018, 6, 2019, 10),
-                 (2018, 6, 2019, 11), (2018, 6, 2019, 12), (2018, 6, 2020, 1), (2018, 6, 2020, 2), (2018, 6, 2020, 3)]# time interval selection
+                 (2018, 6, 2019, 11), (2018, 6, 2019, 12), (2018, 6, 2020, 1), (2018, 6, 2020, 2), (2018, 6, 2020, 3)]
+    #projects selection
     projects = ['electron', 'opencv', 'xbmc', 'react', 'angular', 'django',
                  'symfony', 'rails', 'scala']
     alpha = 0.9
@@ -38,7 +40,7 @@ Source code: MyRecEditTrain.py
                                        TrainPRDisIsComputed=False,
                                        HyperGraphIsCreated=False
                                        , re=4, ct=3, ic=1, rc=1)
-# test for metrics
+# Evalution for metrics
     for re in re_arr:
         for p in projects:
             HyperGraphIsCreated = True  # continue training without initialization, or construct the initial hypergraph(False)
