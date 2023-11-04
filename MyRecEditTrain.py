@@ -15,7 +15,7 @@ from source.utils.ExcelHelper import ExcelHelper
 class MyRecEditTrain:
 
     @staticmethod
-    def EvaluationAlgorithm(project, dates, alpha=0.8, K=20, c=1, TrainPRDisIsComputed=False, HyperGraphIsCreated=False,
+    def evaluationAlgorithm(project, dates, alpha=0.8, K=20, c=1, TrainPRDisIsComputed=False, HyperGraphIsCreated=False,
                       re=0.25, ct=0.25, ic=0.25, rc=0.25):
         start_time = datetime.now()
         recommendNum = 5
@@ -122,7 +122,7 @@ class MyRecEditTrain:
         return recommendList, answerList, prList, convertDict, trainSize
 
     @staticmethod
-    def RecommendByMyRecEdit(train_data, train_data_commit, train_data_issue_comment,
+    def recommendByMyRecEdit(train_data, train_data_commit, train_data_issue_comment,
                              train_data_review_comment, train_data_y, train_data_y_workload,
                              train_data_committer, train_data_issue_commenter, train_data_review_commenter,
                              test_data, test_data_commit, test_data_y,
