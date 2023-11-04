@@ -45,6 +45,6 @@ Source code: MyRecEditTrain.py
         for p in projects:
             HyperGraphIsCreated = True  # continue training without initialization, or construct the initial hypergraph(False)
             TrainPRDisIsComputed = True  # pr-pr weight updated (for optimal k)
-            MyRecEditTrain.TestAlgorithm(p, dates, alpha=alpha, K=K, c=c, TrainPRDisIsComputed=TrainPRDisIsComputed,
+            MyRecEditTrain.EvaluationAlgorithm(p, dates, alpha=alpha, K=K, c=c, TrainPRDisIsComputed=TrainPRDisIsComputed,
                                          HyperGraphIsCreated=HyperGraphIsCreated, re=4, ct=3, ic=1, rc=1)
 
