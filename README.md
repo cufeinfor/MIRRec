@@ -7,6 +7,8 @@ The other .py files are invocated methods for HyperGraph construction.
 
 the .zip files are the preprocessed data of different projects in the dataset, named after the corresponding project.
 
+RD disscussion.pdf is the result of Recommendation distribution of MIRRec and baselines
+
 # Steps
 
 Input: The pre-processed training dataset (zip file).
